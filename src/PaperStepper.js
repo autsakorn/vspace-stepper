@@ -11,8 +11,20 @@ import {
   StepContent
 } from 'material-ui/Stepper';
 import ArrowForwardIcon from 'material-ui/svg-icons/navigation/arrow-downward';
+import {Tabs, Tab} from 'material-ui/Tabs';
+import StepperAction from './StepperAction'
 
-
+const styles = {
+  headline: {
+    fontSize: 24,
+    paddingTop: 16,
+    marginBottom: 12,
+    fontWeight: 400,
+  },
+  slide: {
+    padding: 10,
+  },
+};
 class PaperStepper extends Component{
   state = {
     finished: false,
@@ -97,12 +109,29 @@ class PaperStepper extends Component{
         <Step>
           <StepLabel>Close Task</StepLabel>
           <StepContent>
-            <p>
-              Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              theyre running and how to resolve approval issues.
-            </p>
+          <Tabs>
+           <Tab label="Action" >
+             <div>
+               <StepperAction/>
+             </div>
+           </Tab>
+           <Tab label="Replace Part" >
+             <div>
+               <h2 style={styles.headline}>Tab Two</h2>
+               <p>
+                 This is another example tab.
+               </p>
+             </div>
+           </Tab>
+           <Tab label="Request job" >
+             <div>
+               <h2 style={styles.headline}>Tab Three</h2>
+               <p>
+                 This is a third example tab.
+               </p>
+             </div>
+           </Tab>
+          </Tabs>
             {this.renderStepActions(3)}
           </StepContent>
         </Step>
